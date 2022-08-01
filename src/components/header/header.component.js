@@ -1,11 +1,13 @@
 import { BarChart, SearchRounded, ShoppingCartRounded } from '@mui/icons-material';
 import {} from '@mui/material';
 import './header.styles.css';
+import foodLogo from '../assets/img/food.svg';
+import userLogo from '../assets/img/user.png';
 
 const Header = () => {
     return (
         <header>
-            <img src ='' alt= '' />
+            <img src ={foodLogo} alt= '' className='logo'/>
             <div className="input-box">
                 <SearchRounded className='search-icon'/>
                 <input type='text' placeholder='search'/>
@@ -19,10 +21,10 @@ const Header = () => {
 
             <div className='profile-container'>
                 <div className='img-box'>
-                <img src ='' alt= '' />
+                <img src ={userLogo} alt= '' className='profilepic'/>
                 </div>
                 
-                <h2 className= 'user-name'>Cleo</h2>
+                <h2 className= 'username'>Cleo</h2>
             </div>
 
             <div className='toggle-menu'>
