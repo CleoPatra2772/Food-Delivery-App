@@ -9,3 +9,134 @@
   display: none;
 }
 
+/* Main */
+
+main{
+  width: 100%;
+  height: auto;
+  background-color:#555 ;
+  margin-top: 60px;
+}
+
+/* bottom menu styles */
+
+.bottom-menu{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 60px;
+  background: #d5d5d5;
+  border-radius: 25px 25px 0 0 ;
+  z-index: 101;
+  
+}
+
+
+.bottom-menu ul{
+   display: flex;
+   bottom: 0;
+ }
+  
+   .bottom-menu ul li{
+     position: relative;
+    width: 60px;
+    height: 60px;
+     z-index: 1;
+     bottom: 0;
+  }
+  
+   .bottom-menu ul li a{
+  position: relative;
+  display: flex;
+  align-items: center;
+ justify-content: center;
+  width: 100%;
+ flex-direction: row;
+  text-align: center;
+ font-weight: 500;
+  bottom: 0;
+} 
+  
+.bottom-menu ul li a .MuiSvgIcon-root{
+font-size: 26px;
+color: #373848;
+}
+
+.bottom-menu ul li.active a {
+  transform: translateY(-25px);
+}
+
+.bottom-menu ul li.active a .MuiSvgIcon-root{
+  color: #faf9fb;
+  transition: 0.5s;
+}
+
+.indicator{
+  position: absolute;
+  height: 60px;
+  width: 60px;
+  background: #f8901c;
+  border-radius: 100vw;
+  top: -50%;
+  border: 6px solid #faf9fb;
+  transition: 0.5s;
+}
+
+.indicator::before{
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  width: 18px;
+  height: 18px;
+  background: transparent;
+  border-top-right-radius: 18px;
+  box-shadow: 0px -10px 0 0 #faf9fb;
+}
+
+.indicator::after{
+  content: '';
+  position: absolute;
+  top: 50%;
+  /* right: -10px; */
+  width: 18px;
+  height: 18px;
+  background: transparent;
+  border-top-right-radius: 18px;
+  /* box-shadow: 0px -10px 0 0 #faf9fb; */
+}
+
+.bottom-menu ul li:nth-child(1).active ~ .indicator{
+  transform: translateX(calc(60px * 0));
+}
+
+.bottom-menu ul li:nth-child(2).active ~ .indicator{
+  transform: translateX(calc(60px * 1));
+}
+
+.bottom-menu ul li:nth-child(3).active ~ .indicator{
+  transform: translateX(calc(60px * 2));
+}
+
+.bottom-menu ul li:nth-child(4).active ~ .indicator{
+  transform: translateX(calc(60px * 3));
+}
+
+.bottom-menu ul li:nth-child(5).active ~ .indicator{
+  transform: translateX(calc(60px * 4));
+}
+
+.bottom-menu ul li:nth-child(6).active ~ .indicator{
+  transform: translateX(calc(60px * 5));
+}
+
+/* .bottom-menu, ul, li, a, .icon{
+
+  line-height: 70px;
+  text-align: center;
+  transition: 0.5s;
+} */
