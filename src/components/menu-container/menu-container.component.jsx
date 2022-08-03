@@ -1,10 +1,10 @@
 import './menu-container.styles.css';
 
-const MenuContainer = ({link, icon}) => {
+const MenuContainer = ({link, icon, isHome}) => {
 
 
     return (
-    <li>
+    <li className={isHome ? 'active': ""}>
         <a href={link}>
             <span className='icon' >{icon}</span>
         </a>

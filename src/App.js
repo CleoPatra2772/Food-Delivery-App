@@ -2,8 +2,11 @@
 import { AccountBalanceWalletRounded, Chat, Favorite, HomeRounded, Settings, SummarizeRounded } from '@mui/icons-material';
 import { useEffect } from 'react';
 import './App.css';
+import BannerName from './components/banner/banner-name.component';
 import Header from './components/header/header.component';
 import MenuContainer from './components/menu-container/menu-container.component';
+import food from './components/assets/img/food.png';
+
 
 function App() {
   useEffect(()=> {
@@ -24,7 +27,13 @@ function App() {
       <Header />
       {/* Main Container */}
         <main>
-          <div className='mainContainer'></div>
+          <div className='mainContainer'>
+            {/* banner */}
+            <div className='banner'>
+            <BannerName name={'Cleo'} discount={'20'} link={'#'} />
+            <img src={food} alt='' className='delivery-pic'/>
+            </div>
+          </div>
           <div className='rightMenu'></div>
         </main>
       {/* Bottom Menu */}
