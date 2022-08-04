@@ -163,3 +163,29 @@ main{
   bottom: -10px;
   width: 320px;
 }
+
+/* dish container */
+
+.dishContainer {
+  width: 100%;
+  padding: 10px 0;
+}
+
+.menu-card {
+  width: 100%;
+}
+
+.row-container{
+  display: flex;
+  align-items: center;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  margin: 10px 0;
+  padding: 10px 0;
+
+}
+
+.row-container::-webkit-scrollbar{
+  display: none;
+}
+
