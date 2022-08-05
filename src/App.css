@@ -189,3 +189,11 @@ main{
   display: none;
 }
 
+
+.dish-item-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+

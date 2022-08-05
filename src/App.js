@@ -10,6 +10,7 @@ import { SubMenuContainer } from './components/sub-menu-container/sub-menu-conta
 import { MenuCard } from './components/menu-card/menu-card.component';
 import burger from './components/assets/food-img/burger.png';
 import { MenuItems, Items } from './components/data';
+import { ItemCard } from './components/item-card/item-card.component';
 
 function App() {
   useEffect(()=> {
@@ -67,7 +68,10 @@ function App() {
               }
 
               </div>
-              <div className='dish-item-container'></div>
+              <div className='dish-item-container'>
+                <ItemCard imgSrc={'https://i.pinimg.com/originals/4a/e1/64/4ae164951cdc26bdc6b1c073f1b384ec.jpg'} 
+                name={'Hamburger'} ratings={5} price={7.99}/>
+              </div>
             </div>
           </div>
 
