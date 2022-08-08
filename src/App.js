@@ -1,6 +1,6 @@
 
 import { AccountBalanceWalletRounded, Chat, Favorite, HomeRounded, Settings, SummarizeRounded } from '@mui/icons-material';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import BannerName from './components/banner/banner-name.component';
 import Header from './components/header/header.component';
@@ -13,6 +13,11 @@ import { MenuItems, Items } from './components/data';
 import { ItemCard } from './components/item-card/item-card.component';
 
 function App() {
+  //Main dish state
+  const [isMainData, setMainData] = useState(
+    Items.filter((element) => element.itemId == "buger01")
+  );
+
   useEffect(()=> {
     const menuLi = document.querySelectorAll('#menu li');
     
@@ -32,8 +37,11 @@ function App() {
     }
 
     menuCards.forEach(n => n.addEventListener('click', setMenuCardActive))
-  },[]);
+  },[isMainData]);
 
+  const setData = (itemId) => {
+    setMainData(Items.filter((element) => element.itemId === itemId));
+  }
 
   return (
     <div className="App">
@@ -57,7 +65,7 @@ function App() {
 
               {
                 MenuItems && MenuItems.map((data) => (
-                  <div key={data.id}>
+                  <div key={data.id} onClick = {() => setData(data.itemId)}>
                 <MenuCard 
                 imgSrc={data.imgSrc} 
                 name={data.name} 
@@ -69,8 +77,25 @@ function App() {
 
               </div>
               <div className='dish-item-container'>
-                <ItemCard imgSrc={'https://i.pinimg.com/originals/4a/e1/64/4ae164951cdc26bdc6b1c073f1b384ec.jpg'} 
-                name={'Hamburger'} ratings={5} price={7.99}/>
+              {isMainData &&
+                isMainData.map((data) => (
+                  <ItemCard
+                    key={data.id}
+                    itemId={data.id}
+                    imgSrc={data.imgSrc}
+                    name={data.name}
+                    ratings={data.ratings}
+                    price={data.price}
+                  />
+                ))}
+              
+              {/* {
+                isMainData && isMainData.map((data => (
+                  <ItemCard key={data.id} imgSrc={data.imgSrc} 
+                name={data.name} ratings={data.ratings} price={data.price}/>
+                )))
+              } */}
+                
               </div>
             </div>
           </div>

@@ -2,7 +2,7 @@ import { AddRounded, Favorite, StarRounded } from "@mui/icons-material"
 import './item-card.styles.css';
 import { useState } from "react";
 
-export const ItemCard = ({imgSrc, name, ratings, price}) => 
+export const ItemCard = ({imgSrc, name, ratings, price, itemId}) => 
 
 {
     const [isFavorite, setFavorite] = useState(false);
@@ -12,7 +12,7 @@ export const ItemCard = ({imgSrc, name, ratings, price}) =>
     }
 
     return (
-        <div className="item-card">
+        <div className="item-card" id={itemId}>
             <div className={`is-favorite ${isFavorite ? "active" : ""}`}
             onClick = { () => setFavorite(!isFavorite)}
             >
