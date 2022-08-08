@@ -11,6 +11,7 @@ import { MenuCard } from './components/menu-card/menu-card.component';
 import burger from './components/assets/food-img/burger.png';
 import { MenuItems, Items } from './components/data';
 import { ItemCard } from './components/item-card/item-card.component';
+import DebitCard from './components/debit-card/debit-card.component';
 
 function App() {
   //Main dish state
@@ -100,7 +101,14 @@ function App() {
             </div>
           </div>
 
-          <div className='rightMenu'></div>
+          <div className='right-menu'>
+              <div className='debit-card-container'>
+                <div className='debit-card'>
+                  <DebitCard />
+                </div>
+              </div>
+
+          </div>
         </main>
       {/* Bottom Menu */}
       <div className= 'bottom-menu'>
