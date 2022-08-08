@@ -3,9 +3,21 @@ import {} from '@mui/material';
 import './header.styles.css';
 import foodLogo from '../assets/img/food.svg';
 import userLogo from '../assets/img/user.png';
+import { useEffect } from 'react';
 
 const Header = () => {
+    useEffect(() => {
+        const toggleMenu = document.querySelector(".toggle-menu");
+
+        toggleMenu.addEventListener('click', ()=> {
+            document.querySelector('.right-menu').classList.toggle('active');
+        });
+    },[]);
+    
+    
     return (
+      
+
         <header>
             <img src ={foodLogo} alt= '' className='logo'/>
             <div className="input-box">

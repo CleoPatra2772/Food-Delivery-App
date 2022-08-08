@@ -12,6 +12,7 @@ import burger from './components/assets/food-img/burger.png';
 import { MenuItems, Items } from './components/data';
 import { ItemCard } from './components/item-card/item-card.component';
 import DebitCard from './components/debit-card/debit-card.component';
+import CartItem from './components/cart-item/cart-item.component';
 
 function App() {
   //Main dish state
@@ -107,7 +108,27 @@ function App() {
                   <DebitCard />
                 </div>
               </div>
+            
+            <div className='cart-checkout-container'>
+              <div className='cart-container'>
+                <SubMenuContainer name={"Cart Items"}/>
 
+                <div className='cart-items'>
+                  <CartItem 
+                    name={'Burger'}
+                    imgSrc= {"https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2FemptyCart.png?alt=media&token=50b733d4-cdd9-4025-bffe-8efa4066ca24"}
+                    qty = {"3"}
+                    price = {"7.99"}
+                  />
+                </div>
+              </div>
+              <div className='total-section'>
+                <h3>Total</h3>
+                <p><span>$</span>45.5</p>
+              </div>
+
+              <button className='checkout'>Check Out</button>
+            </div>
           </div>
         </main>
       {/* Bottom Menu */}
