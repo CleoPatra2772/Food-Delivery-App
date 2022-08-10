@@ -13,12 +13,15 @@ import { MenuItems, Items } from './components/data';
 import { ItemCard } from './components/item-card/item-card.component';
 import DebitCard from './components/debit-card/debit-card.component';
 import CartItem from './components/cart-item/cart-item.component';
+import { useStateValue } from './components/state-provider/state-provider';
 
 function App() {
   //Main dish state
   const [isMainData, setMainData] = useState(
     Items.filter((element) => element.itemId == "buger01")
   );
+
+  const [{cart}, dispatch] = useStateValue();
 
   useEffect(()=> {
     const menuLi = document.querySelectorAll('#menu li');
@@ -108,18 +111,24 @@ function App() {
                   <DebitCard />
                 </div>
               </div>
-            
-            <div className='cart-checkout-container'>
+
+              {!cart ? <div></div> : <div className='cart-checkout-container'>
               <div className='cart-container'>
                 <SubMenuContainer name={"Cart Items"}/>
 
                 <div className='cart-items'>
+                {cart && 
+                cart.map((data) =>  (
                   <CartItem 
-                    name={'Burger'}
-                    imgSrc= {"https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2FemptyCart.png?alt=media&token=50b733d4-cdd9-4025-bffe-8efa4066ca24"}
-                    qty = {"3"}
-                    price = {"7.99"}
+                  key = {data.id}
+                  itemId= {data.id}
+                    name={data.name}
+                    imgSrc= {data.imgSrc}
+                    // qty = {"3"}
+                    price = {data.price}
                   />
+                ))}
+                  
                 </div>
               </div>
               <div className='total-section'>
@@ -128,7 +137,9 @@ function App() {
               </div>
 
               <button className='checkout'>Check Out</button>
-            </div>
+            </div>}
+            
+            
           </div>
         </main>
       {/* Bottom Menu */}
